@@ -6,6 +6,15 @@ word2vecで連想ゲーム作ってみた
 word2vecを用いて、2つの単語がどうやって連想されていくのか調べてみた  
 連想をword2vecで実装し、連想結果をwordnetのhypernym()で調べる  
 
+実行環境：  
+python == 3.6.1  
+numpy == 1.13.3+mkl  
+scipy == 1.0.0rc2  
+gensim == 3.1.0  
+nltk == 3.2.5  
+networkx == 1.11  
+scikit-learn == 0.19.0  
+Flask == 0.12.2  
 
 使い方:  
 1.app.pyを実行  
