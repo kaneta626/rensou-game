@@ -19,7 +19,7 @@ Flask == 0.12.2
 使い方:  
 1.http://github.com/Hirosan/ja.text8/ よりja.text8.zipをダウンロードする  
 2.gakushu.pyを実行し,sampleJA.modelを作成する  
-3.app.pyを実行  
+3.app.pyを実行  
 4.http://127.0.0.1:5000/ を開く  
 5.二つの単語を入力して、実行ボタンを押す  
 
