@@ -22,9 +22,9 @@ Flask == 0.12.2
 3.二つの単語を入力して、実行ボタンを押す  
 
 問題点：  
-・時間が2～3分かかる
-・wordnetによるカテゴリ分類が不完全  
-・word2vecによる連想が不完全
+・時間が2～3分かかる  
+・wordnetによるカテゴリ分類が不完全  
+・word2vecによる連想が不完全  
 
 word2vecの学習をする際に参考にさせていただいたサイト  
 http://hironsan.hatenablog.com/entry/japanese-text8-corpus  
