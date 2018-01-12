@@ -15,7 +15,7 @@ def result():
     word1 = request.args.get('text1', '')
     word2 = request.args.get('text2', '')
     rns = rensou.Rensou(word1, word2)
-    answer = rns.relation()
+    answer = rns.getResult()
     return "%s"% answer
 
 if __name__ == "__main__":

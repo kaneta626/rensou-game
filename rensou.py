@@ -17,8 +17,13 @@ class Rensou:
         self.model = word2vec.Word2Vec.load("sampleJA.model")
         self.graph = nx.DiGraph()
         
-        self.make_list(self.word1, self.word2)
-        self.make_graph(self.str_list)
+        try:
+            self.make_list(self.word1, self.word2)
+            self.make_graph(self.str_list)
+            self.result = relation()
+        except Exception as e:
+            error_word = str(e).replace("word '","").replace("' not in vocabulary","")
+            self.result = error_word + "は登録されていない単語です"
     
     #グラフを作るためのリスト作成、現在、1000単語
     #学習に時間がかかる際は、ここの単語数を少なくすると早く実行できる。しかし、精度は落ちる
@@ -91,20 +96,21 @@ class Rensou:
         
     #結果の表示
     def relation(self):
-        try:
-            self.graph.remove_edge(self.word1, self.word2)
-            data = nx.dijkstra_path(self.graph, self.word1, self.word2)
-            wait = pow(1 - self.model.similarity(self.word1, self.word2),2)
-            self.graph.add_edge(self.word1, self.word2, weight=wait)
+        self.graph.remove_edge(self.word1, self.word2)
+        data = nx.dijkstra_path(self.graph, self.word1, self.word2)
+        wait = pow(1 - self.model.similarity(self.word1, self.word2),2)
+        self.graph.add_edge(self.word1, self.word2, weight=wait)
         
-            new_data = []
-            for i in range(len(data)):
-                new_data.append(data[i])
-                if(i+1 < len(data)):
-                    new_data.append(self.category(data[i], data[i+1]))
+        new_data = []
+        for i in range(len(data)):
+            new_data.append(data[i])
+            if(i+1 < len(data)):
+                new_data.append(self.category(data[i], data[i+1]))
         
-            return new_data
-        except Exception as e:
-            error_word = str(e).replace("word '","").replace("' not in vocabulary","")
-            return error_word + "は登録されていない単語です"
+        return new_data
+    
+    def getResult(self):
+        return self.result
+    
+    
         
