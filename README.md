@@ -28,6 +28,11 @@ Flask == 0.12.2
 ・wordnetによるカテゴリ分類が不完全  
 ・word2vecによる連想が不完全  
 
+作成者：  
+Ono hodaka  
+Kaneta hirotaka  
+Takahashi chinatsu  
+
 word2vecの学習をする際に参考にさせていただいたサイト  
 http://hironsan.hatenablog.com/entry/japanese-text8-corpus  
 word2vecを用いた連想を行うのに参考にさせていただいたサイト  
